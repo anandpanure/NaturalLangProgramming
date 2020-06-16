@@ -1,0 +1,492 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "language coding",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "GenerateProjectIntent",
+          "slots": [
+            {
+              "name": "ProjectName",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{ProjectName}"
+              ]
+            }
+          ],
+          "samples": [
+            "create new project {ProjectName}",
+            "start new program {ProjectName}",
+            "begin new program",
+            "begin new program {ProjectName}",
+            "start new application {ProjectName}",
+            "start new program"
+          ]
+        },
+        {
+          "name": "GenerateClassIntent",
+          "slots": [
+            {
+              "name": "ClassName",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{ClassName}"
+              ]
+            },
+            {
+              "name": "Accessor",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "create place {ClassName}",
+            "create place",
+            "generate class",
+            "generate class {ClassName}",
+            "create class {ClassName}",
+            "create class"
+          ]
+        },
+        {
+          "name": "GenerateFunctionIntent",
+          "slots": [
+            {
+              "name": "FunctionName",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{FunctionName}"
+              ]
+            },
+            {
+              "name": "ReturnType",
+              "type": "AMAZON.SearchQuery"
+            },
+            {
+              "name": "Accessor",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "generate method",
+            "create function",
+            "generate functon {FunctionName}",
+            "create method {FunctionName}",
+            "create function {FunctionName}"
+          ]
+        },
+        {
+          "name": "GenerateSQLCommandIntent",
+          "slots": [
+            {
+              "name": "QueryText",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{QueryText}"
+              ]
+            }
+          ],
+          "samples": [
+            "Create SQL command ",
+            "Create new SQL command with query {QueryText}"
+          ]
+        },
+        {
+          "name": "GetJokeIntent",
+          "slots": [],
+          "samples": [
+            "check rest api"
+          ]
+        },
+        {
+          "name": "AddPropertyToClassIntent",
+          "slots": [
+            {
+              "name": "PropertyName",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{PropertyName}"
+              ]
+            },
+            {
+              "name": "ClassName",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "add property",
+            "add property {PropertyName}",
+            "add property {PropertyName} to the class"
+          ]
+        },
+        {
+          "name": "StorageIntent",
+          "slots": [],
+          "samples": [
+            "store the data",
+            "add storage place",
+            "create storage class",
+            "create storage",
+            "Create Storage for class"
+          ]
+        },
+        {
+          "name": "cSharpGreetingIntent",
+          "slots": [],
+          "samples": [
+            "let\u0027s start coding in c. sharp",
+            "let\u0027s start coding in c.sharp",
+            "let\u0027s start coding"
+          ]
+        },
+        {
+          "name": "AllowUserEntriesIntent",
+          "slots": [],
+          "samples": [
+            "allow user entry",
+            "allow user entries "
+          ]
+        },
+        {
+          "name": "GetDataFromDBIntent",
+          "slots": [],
+          "samples": [
+            "get employee list",
+            "get inventory list"
+          ]
+        },
+        {
+          "name": "FilterIntent",
+          "slots": [
+            {
+              "name": "PropertyName",
+              "type": "AMAZON.SearchQuery"
+            },
+            {
+              "name": "PropertyValue",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{PropertyValue}"
+              ]
+            }
+          ],
+          "samples": [
+            "Filter inventory by {PropertyName}"
+          ]
+        },
+        {
+          "name": "DisplayToConsoleIntent",
+          "slots": [],
+          "samples": [
+            "dispaly to console",
+            "display data"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "GenerateProjectIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "ProjectName",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.694721913715.1456643989354"
+              }
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        },
+        {
+          "name": "GenerateClassIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "ClassName",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1152356143548.806873511237"
+              }
+            },
+            {
+              "name": "Accessor",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {},
+              "validations": [
+                {
+                  "type": "isInSet",
+                  "prompt": "Slot.Validation.450713362026.916018342231.555133434882",
+                  "values": [
+                    "private",
+                    "internal",
+                    "public",
+                    "protected"
+                  ]
+                }
+              ]
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        },
+        {
+          "name": "GenerateFunctionIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "FunctionName",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.916343410937.1256436773048"
+              }
+            },
+            {
+              "name": "ReturnType",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {},
+              "validations": [
+                {
+                  "type": "isInSet",
+                  "prompt": "Slot.Validation.916343410937.1102098054973.801925405713",
+                  "values": [
+                    "void",
+                    "string",
+                    "float",
+                    "int"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Accessor",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {},
+              "validations": [
+                {
+                  "type": "isInSet",
+                  "prompt": "Slot.Validation.1345497839202.915533738918.1095814264659",
+                  "values": [
+                    "private",
+                    "internal",
+                    "public",
+                    "protected"
+                  ]
+                }
+              ]
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        },
+        {
+          "name": "GenerateSQLCommandIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "QueryText",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1034295366229.1454509746738"
+              }
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        },
+        {
+          "name": "AddPropertyToClassIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "PropertyName",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1192772100145.1010410317642"
+              }
+            },
+            {
+              "name": "ClassName",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        },
+        {
+          "name": "FilterIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "PropertyName",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            },
+            {
+              "name": "PropertyValue",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.142928563977.445813812932"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.694721913715.1456643989354",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What should be the application name ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1152356143548.806873511237",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What should be the class name ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.916343410937.1256436773048",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What should be the function name ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.916343410937.1102098054973",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What should be the return type for {FunctionName} ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1034295366229.1454509746738",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please let me know the Query Text"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.916343410937.1102098054973.801925405713",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "This is not valid return type. Please say valid return type"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.450713362026.916018342231",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What should be the Accessor like public,private?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.450713362026.916018342231.555133434882",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "This accessor is not valid.please say valid type."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1345497839202.915533738918",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What should be the Accessor like public,private?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1345497839202.915533738918.1095814264659",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "This accessor is not valid.please say valid type."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1192772100145.1010410317642",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What should be the property Name?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.142928563977.445813812932",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What should be the value for filteration ?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "33"
+}

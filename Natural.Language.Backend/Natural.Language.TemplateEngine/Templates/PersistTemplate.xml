@@ -1,0 +1,26 @@
+﻿<Data>
+<![CDATA[        public int Insert()
+        {
+        //replace with app.config
+            using (IDbConnection sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Default"].ConnectionString))
+            {
+                sqlconnection.Open();
+                int index = Convert.ToInt32(sqlconnection.Insert(this));
+                sqlconnection.Close();
+                return index;
+            }
+        }
+
+        public static IEnumerable<@CLASS_NAME@> Get()
+        {
+            Console.WriteLine("--- --- --- --- --- --- --- ");
+            Console.WriteLine("Getting data from db");
+            Console.WriteLine("--- --- --- --- --- --- --- ");
+            var query = "SELECT * FROM @CLASS_NAME@s";
+            using (IDbConnection sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Default"].ConnectionString))
+            {
+                sqlconnection.Open();
+                return sqlconnection.Query<@CLASS_NAME@>(query);
+            }
+        }]]>
+</Data>

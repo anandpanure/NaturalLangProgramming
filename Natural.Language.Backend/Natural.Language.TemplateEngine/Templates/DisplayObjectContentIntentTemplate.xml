@@ -1,0 +1,3 @@
+﻿<Data>
+  Console.WriteLine(@CLASS_NAME@.ToCsv(",", @VARIABLE_NAME@));
+</Data>

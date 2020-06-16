@@ -1,0 +1,5 @@
+﻿<Data>
+    <![CDATA[
+    @VARIABLE_NAME@ = @CLASS_NAME@.Get();
+    ]]>
+</Data>

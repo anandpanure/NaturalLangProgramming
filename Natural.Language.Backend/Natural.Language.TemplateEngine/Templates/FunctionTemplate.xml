@@ -1,0 +1,6 @@
+﻿<Data>
+  @ACCESS_LEVEL@ @RETURN_TYPE@ @FUNCTION_NAME@(@PARAMETER@)
+  {
+
+  }
+</Data>

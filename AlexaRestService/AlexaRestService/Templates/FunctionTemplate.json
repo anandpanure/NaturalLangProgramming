@@ -1,0 +1,13 @@
+{
+  "Name": "Function",
+  "Templates": [
+    {
+      "Type": "Public",
+      "Template": "|Accessor| |ReturnType| |Name|(|Parameters|)\n{\n}"
+    },
+    {
+      "Type": "Private",
+      "Name": "|Accessor| |ReturnType| |Name|(|Parameters|)\n{\n}"
+    }
+  ]
+}

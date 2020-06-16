@@ -1,0 +1,10 @@
+﻿<Data>
+  <Intent>
+    <![CDATA[
+      foreach(var o in @VARIABLE_NAME@)
+      {
+          o.Insert();
+      }
+    ]]>
+  </Intent>
+</Data>

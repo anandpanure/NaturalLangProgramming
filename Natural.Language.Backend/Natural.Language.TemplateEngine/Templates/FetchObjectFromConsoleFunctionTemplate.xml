@@ -1,0 +1,29 @@
+﻿<Data>
+  <![CDATA[            public static IEnumerable<T> InputData<T>()
+            {
+                var results = new List<T>();
+                Type t = typeof(T);
+                Console.WriteLine($"Do you want to add {t.Name} details? Y/N");
+                if (Console.ReadLine().ToUpper() == "Y")
+                {
+                    do
+                    {
+                        
+                        PropertyInfo[] fields = t.GetProperties();
+                    
+                        T objectInstance = Activator.CreateInstance<T>();
+                        foreach (var f in fields)
+                        {
+                            Console.WriteLine($"Enter : {f.Name}");
+                            TypeConverter typeConverter = TypeDescriptor.GetConverter(f.PropertyType);
+                            object propValue = typeConverter.ConvertFromString(Console.ReadLine());
+                            f.SetValue(objectInstance, propValue);
+                        }
+                        results.Add(objectInstance);
+                        Console.WriteLine("Are there more entries to be added? Y/N");
+                    } while (Console.ReadLine().ToUpper() == "Y");
+                }
+                return results;
+
+            }]]>
+</Data>

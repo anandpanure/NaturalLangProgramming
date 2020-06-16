@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="$(ProjectDir)..\..\signtool.exe sign /n &quot;FIS-RiskandCompliance&quot; /fd sha256 /v $(TargetPath)" />
+  </Target>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Natural.Language.TemplateEngine\Natural.Language.TemplateEngine.csproj" />
+  </ItemGroup>
+
+</Project>

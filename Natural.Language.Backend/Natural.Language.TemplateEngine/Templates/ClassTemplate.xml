@@ -1,0 +1,22 @@
+﻿<Data>
+  using System;
+  using System.Collections.Generic;
+  using System.Configuration;
+  using System.Data;
+  using System.Linq;
+  using System.Data.SqlClient;
+  using Dapper;
+  using Dapper.Contrib.Extensions;
+  using System.Reflection;
+  using System.ComponentModel;
+  using System.Text;
+
+  namespace @PROJECT_NAME@
+  {
+  @ACCESS_LEVEL@ class @CLASS_NAME@
+  {
+
+  }
+  }
+
+</Data>

@@ -1,0 +1,3 @@
+﻿<Data>
+  @ACCESS_LEVEL@ @RETURN_TYPE@ @PROPERTY_NAME@ {get; set;}
+</Data>
