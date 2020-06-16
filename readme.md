@@ -26,9 +26,6 @@ From natural language processing to self-driving cars, machine learning is chang
  
 
 
-![](C:%5CUsers%5CVasu%5CDownloads%5CUntitled%20Diagram.png)
-
-
 
 ## How it works
 
@@ -40,7 +37,7 @@ From natural language processing to self-driving cars, machine learning is chang
 
 ### Architecture
 
-![Architecture](resources\architecture.png)
+![Architecture](resources/architecture.png)
 
 ## Technologies Used
 
